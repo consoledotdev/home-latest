@@ -6,8 +6,11 @@
 
 import argparse
 import json
+from datetime import date
 
 import jinja2
+from dateutil.parser import parse
+from dateutil.relativedelta import relativedelta, TH
 
 # Parse args
 parser = argparse.ArgumentParser()
@@ -22,7 +25,11 @@ parser.add_argument('--output', help='Path to the location of the output file'
                     ' does)', required=True)
 args = parser.parse_args()
 
-print('Starting build table')
+print('Starting build')
+
+# Get last Thursday
+today = date.today()
+last_thursday = today - relativedelta(weekday=TH(-1))
 
 # Open and parse the JSON file to get the list of beta programs.
 # See example-beta-list.json for what this should look like.
@@ -36,7 +43,11 @@ with open(args.beta_json, 'r') as f:
     betas = json.load(f)
 
     for program in betas['results'][0]['result']['formatted']:
-        programs.append(program)
+        scheduled_for = parse(program['Scheduled for'])
+
+        # Only pull out things scheduled for the last newsletter
+        if scheduled_for.isocalendar() == last_thursday.isocalendar():
+            programs.append(program)
 
     print('Loaded beta JSON')
 
