@@ -31,10 +31,30 @@ print('Starting build')
 today = date.today()
 last_thursday = today - relativedelta(weekday=TH(-1))
 
-# Open and parse the JSON file to get the list of beta programs.
-# See example-beta-list.json for what this should look like.
+# Open and parse the JSON file to get the list of interesting tools.
+# See example-tool-list.json for what this should look like.
 # It will be generated as part of the build steps using the GitHub
-# gsheet.action from the Beta Programs Google Sheet (see README.md).
+# gsheet.action from the Interesting Tools Google Sheet (see README.md).
+print('Loading tools JSON...')
+
+interesting = []
+
+with open(args.tools_json, 'r') as f:
+    tools = json.load(f)
+
+    for tool in tools['results'][0]['result']['formatted']:
+        if tool['Scheduled for'] == "":
+            continue
+
+        scheduled_for = parse(tool['Scheduled for'])
+
+        # Only pull out things scheduled for the last newsletter
+        if scheduled_for.isocalendar() == last_thursday.isocalendar():
+            interesting.append(tool)
+
+    print('Loaded tools JSON')
+
+# Same for the betas
 print('Loading beta JSON...')
 
 programs = []
@@ -59,7 +79,7 @@ print('Rendering template...')
 template_loader = jinja2.FileSystemLoader(searchpath='templates')
 template_env = jinja2.Environment(loader=template_loader, autoescape=True)
 template = template_env.get_template(args.template)
-rendered = template.render(betas=programs)
+rendered = template.render(tools=interesting, betas=programs)
 print('Rendered template')
 
 # Output the rendered template

@@ -88,26 +88,49 @@
 
         <h2>Interesting tools</h2>
 
-        {% for tool in tools %}
-        <h3><a href="{{ tool['URL'] }}">{{ tool['Tool/Product/Project'] }}</a></h3>
-        <p><em>{{ tool['What is it?'] }}</em></p>
-        <p><strong>What we like</strong>:{{ tool['What we like'] }}</p>
+        
+        <h3><a href="https://www.vantage.sh/">Vantage</a></h3>
+        <p><em>AWS Console designed for developers.</em></p>
+        <p><strong>What we like</strong>:AWS Console UX is not great; Vantage is much cleaner and faster. It connects using a read-only CloudFormation IAM Role and they have detailed documentation about the read-only permissions it requests. &#34;Views&#34; nicely segment/group resources, even across accounts and regions, with global search for them all. Cost reporting by view and weekly email reports help you manage budgets better.</p>
 
-        <p><strong>What we don't like</strong>: {{ tool['What we dislike'] }}</p>
+        <p><strong>What we don't like</strong>: Does not support all AWS products, currently focused on a few key resources e.g. EC2 instances, VPC Subnets, Route53, etc. Currently read-only, which is good for security and because it&#39;s a new tool - plans to add more management features in the future. Also AWS-only, but they are working on other cloud providers.</p>
 
         <hr />
-        {% endfor %}
+        
+        <h3><a href="https://siasky.net/">Skynet</a></h3>
+        <p><em>Decentralized file storage and CDN.</em></p>
+        <p><strong>What we like</strong>:Web UI and SDKs for uploading files to a decentralized CDN. Uses a blockchain and rewards users who run nodes with coins which can be exchanged for money. Current average cost = $4.16/TB stored + $1.25/TB transferred.</p>
+
+        <p><strong>What we don't like</strong>: Time to first byte 300-500ms may be prohibitatively slow for some use cases. Streaming &#34;up to 1Gbps&#34; but what does &#34;up to&#34; really mean? Files must be public. Why call it &#34;Skynet&#34;?!</p>
+
+        <hr />
+        
+        <h3><a href="https://stork-search.net/">Stork Search</a></h3>
+        <p><em>Fast search for static sites.</em></p>
+        <p><strong>What we like</strong>:Generate the index of your content, which is then downloaded by the visitor&#39;s browser and searched using the JS/WASM library &#34;locally&#34; - this is what makes it so fast.</p>
+
+        <p><strong>What we don't like</strong>: Index must be generated manually. It is specifically designed for static sites, so it would need to be hooked into a build process. Would need extra work if you wanted to index a dynamic site.</p>
+
+        <hr />
+        
 
         <h2>New beta releases &amp; early access programs</h2>
 
-        {% for beta in betas %}
-        <h3><a href="{{ beta['URL'] }}">{{ beta['Tool/Product/Project'] }}</a>,
-            from {{ beta['Company/Org'] }}</h3>
-        <p><em>{{ beta['What is it?'] }}</em></p>
-        <p>{{ beta['Category'] }}. {{ beta['Type'] }}. {{ beta['Access'] }}.</p>
+        
+        <h3><a href="https://vitejs.dev/">Vite</a>,
+            from Vite</h3>
+        <p><em>Frontend (TypeScript, JS, CSS, etc) build system focused on speed.</em></p>
+        <p>Developer Tools. Open Source. Open.</p>
 
         <hr />
-        {% endfor %}
+        
+        <h3><a href="https://cloud.google.com/blog/products/management-tools/cloud-logging-gets-real-time-log-searching">tail cloud logging</a>,
+            from Google</h3>
+        <p><em>tail -f and query logs CLI for Google Cloud Logging.</em></p>
+        <p>Cloud. SaaS. Open.</p>
+
+        <hr />
+        
 
         <p>We are always on the lookout for interesting tools to feature. We
         only include things that would be of interest to experienced developers
