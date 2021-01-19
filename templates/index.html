@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://console.dev/latest/" />
     <meta name="twitter:site" content="@consoledotdev" />
 
-    <meta name="robots" content="noindex">
+    <meta name="robots" content="noindex,follow,noarchive">
 
     <!-- Plausible Analytics: https://plausible.io -->
     <script async defer data-domain="console.dev" src="https://stats.console.dev/js/index.js"></script>
@@ -37,8 +37,8 @@
         <p>Want to get the best tools for developers via email each week?</p>
         <form action="https://dev.us7.list-manage.com/subscribe/post?u=f8c3cd14ee8d63c53d0986a48&amp;id=267911a165"
               method="post"
-              id="mc-embedded-subscribe-form"
-              name="mc-embedded-subscribe-form"
+              id="mc-embedded-subscribe-form-top"
+              name="mc-embedded-subscribe-form-top"
               class="validate"
               novalidate>
 
@@ -65,7 +65,8 @@
 
         <!-- Plausible Analytics goal tracking for signups -->
         <script>
-            var registerForm = document.querySelector("#mc-embedded-subscribe-form");
+            var registerForm =
+                document.querySelector("#mc-embedded-subscribe-form-top");
             registerForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 setTimeout(submitForm, 1000);
@@ -92,7 +93,7 @@
         {% for tool in tools %}
         <h3><a href="{{ tool['URL'] }}">{{ tool['Tool/Product/Project'] }}</a></h3>
         <p><em>{{ tool['What is it?'] }}</em></p>
-        <p><strong>What we like</strong>:{{ tool['What we like'] }}</p>
+        <p><strong>What we like</strong>: {{ tool['What we like'] }}</p>
 
         <p><strong>What we don't like</strong>: {{ tool['What we dislike'] }}</p>
 
@@ -114,6 +115,57 @@
         only include things that would be of interest to experienced developers
         and do not accept payment for product inclusion. We do not track email
         opens, but do track clicks so we can refine our selection criteria.</p>
+
+        <h3>Subscribe</h3>
+        <p>Want to get the best tools for developers via email each week?</p>
+        <form action="https://dev.us7.list-manage.com/subscribe/post?u=f8c3cd14ee8d63c53d0986a48&amp;id=267911a165"
+              method="post"
+              id="mc-embedded-subscribe-form-bottom"
+              name="mc-embedded-subscribe-form-bottom"
+              class="validate"
+              novalidate>
+
+          <input type="email"
+                 value=""
+                 name="EMAIL"
+                 id="mc-email" />
+          <input type="hidden"
+                 value="latest"
+                 name="REFERRER"
+                 id="mc-referrer" />
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text"
+                 name="b_f8c3cd14ee8d63c53d0986a48_267911a165"
+                 tabindex="-1"
+                 value="" /><!-- Anti spam field -->
+          </div>
+          <input type="submit"
+                 value="Subscribe"
+                 name="subscribe"
+                 id="mc-subscribe"
+                 class="button" />
+        </form>
+
+        <!-- Plausible Analytics goal tracking for signups -->
+        <script>
+            var registerForm =
+                document.querySelector("#mc-embedded-subscribe-form-bottom");
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                setTimeout(submitForm, 1000);
+                var formSubmitted = false;
+
+                function submitForm() {
+                    if (!formSubmitted) {
+                        formSubmitted = true;
+                        registerForm.submit();
+                    }
+                }
+
+                plausible('Newsletter Subscribe', {callback: submitForm});
+            })
+        </script>
+
     </main>
 </body>
 </html>
