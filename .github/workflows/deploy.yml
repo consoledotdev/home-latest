@@ -89,7 +89,7 @@ jobs:
                   python3 build_html.py \
                   --tools-json tools.json \
                   --beta-json betas.json \
-                  --template table.html \
+                  --template index.html \
                   --output public/index.html
 
             - uses: actions/upload-artifact@v2
