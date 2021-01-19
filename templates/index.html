@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Latest Console newsletter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Latest Console newsletter - the best tools for developers." />
+    <link rel="stylesheet" href="https://console.dev/css/new.css" />
+    <link rel="canonical" href="https://console.dev/latest/" />
+
+    <meta property="og:site_name" content="Console" />
+    <meta property="og:title" content="Console" />
+    <meta property="og:description" content="Latest Console newsletter - the best tools for developers." />
+    <meta property="og:image" itemprop="image" content="https://console.dev/img/console-mark-256.png" />
+    <meta property="og:image:secure_url" itemprop="image" content="https://console.dev/img/console-mark-256.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://console.dev/latest/" />
+    <meta name="twitter:site" content="@consoledotdev" />
+
+    <meta name="robots" content="noindex">
+
+    <!-- Plausible Analytics: https://plausible.io -->
+    <script async defer data-domain="console.dev" src="https://stats.console.dev/js/index.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            <picture>
+                <source srcset="https://console.dev/img/console-logo-dark.svg"><a href="https://console.dev"><img
+                src="https://console.dev/img/console-logo-dark.svg" title="Console logo" height="50" alt="Console logo" /></a>
+            </picture>
+        </h1>
+    </header>
+    <main>
+        <h3>Subscribe</h3>
+        <p>Want to get the best tools for developers via email each week?</p>
+        <form action="https://dev.us7.list-manage.com/subscribe/post?u=f8c3cd14ee8d63c53d0986a48&amp;id=267911a165"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate"
+              novalidate>
+
+          <input type="email"
+                 value=""
+                 name="EMAIL"
+                 id="mc-email" />
+          <input type="hidden"
+                 value="latest"
+                 name="REFERRER"
+                 id="mc-referrer" />
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text"
+                 name="b_f8c3cd14ee8d63c53d0986a48_267911a165"
+                 tabindex="-1"
+                 value="" /><!-- Anti spam field -->
+          </div>
+          <input type="submit"
+                 value="Subscribe"
+                 name="subscribe"
+                 id="mc-subscribe"
+                 class="button" />
+        </form>
+
+        <!-- Plausible Analytics goal tracking for signups -->
+        <script>
+            var registerForm = document.querySelector("#mc-embedded-subscribe-form");
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                setTimeout(submitForm, 1000);
+                var formSubmitted = false;
+
+                function submitForm() {
+                    if (!formSubmitted) {
+                        formSubmitted = true;
+                        registerForm.submit();
+                    }
+                }
+
+                plausible('Newsletter Subscribe', {callback: submitForm});
+            })
+        </script>
+
+        <h2>Latest Console newsletter</h2>
+        <p>Hello! Each week we pick out the most interesting tools for
+        developers. We keep track of everything - dev tools, devops, cloud, and
+        APIs - so you don't have to.</p>
+
+        <h2>Interesting tools</h2>
+
+        <h3><a href="https://example.com">CrowdSec</a></h3>
+        <p><em>A modern Fail2ban using crowd sourced detection.</em></p>
+        <p><strong>What we like</strong>: Follows local log files to build a
+        profile of normal activity. Can take configurable actions e.g. ban IP,
+        on detecting unusual behaviour. Crowdsources definitions of "unusual"
+        without sending any log data to the cloud.</p>
+
+        <p><strong>What we don't like</strong>: Early release. Open source but
+        built by a startup that is on a route to funding next year.</p>
+
+        <hr />
+
+        <h3><a href="">CrowdSec</a></h3>
+        <p><em>A modern Fail2ban using crowd sourced detection.</em></p>
+        <p><strong>What we like</strong>: Follows local log files to build a
+        profile of normal activity. Can take configurable actions e.g. ban IP,
+        on detecting unusual behaviour. Crowdsources definitions of "unusual"
+        without sending any log data to the cloud.</p>
+
+        <p><strong>What we don't like</strong>: Early release. Open source but
+        built by a startup that is on a route to funding next year.</p>
+
+        <h2>New beta releases &amp; early access programs</h2>
+
+        {% for beta in betas %}
+        <h3><a href="{{ beta['URL'] }}">{{ beta['Tool/Product/Project'] }}</a>,
+            from {{ beta['Company/Org'] }}</h3>
+        <p><em>{{ beta['What is it?'] }}</em></p>
+        <p>{{ beta['Category'] }}. {{ beta['Type'] }}. {{ beta['Access'] }}.</p>
+
+        <hr />
+        {% endfor %}
+
+        <p>We are always on the lookout for interesting tools to feature. We
+        only include things that would be of interest to experienced developers
+        and do not accept payment for product inclusion. We do not track email
+        opens, but do track clicks so we can refine our selection criteria.</p>
+    </main>
+</body>
+</html>

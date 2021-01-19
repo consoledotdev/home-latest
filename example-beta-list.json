@@ -1,0 +1,113 @@
+{
+  "results": [
+    {
+      "command": {
+        "func": "getData",
+        "kwargs": [
+          {
+            "range": "'All Programs'!A:P",
+            "hasHeaderRow": true
+          },
+          null
+        ]
+      },
+      "result": {
+        "rawData": [
+          [
+            "Datadog",
+            "Runtime Security",
+            "2020-11-26",
+            "TRUE",
+            "FALSE",
+            "2020-11-23",
+            "https://www.datadoghq.com/blog/datadog-runtime-security/",
+            "A runtime security thing",
+            "2020-11-23",
+            "DevOps",
+            "SaaS",
+            "Open",
+            "@datadoghq",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Datadog",
+            "Runtime Security",
+            "2020-11-26",
+            "TRUE",
+            "FALSE",
+            "2020-11-23",
+            "https://www.datadoghq.com/blog/datadog-runtime-security/",
+            "A runtime security thing",
+            "2020-11-23",
+            "DevOps",
+            "SaaS",
+            "Open",
+            "@datadoghq",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "formatted": [
+          {
+            "Company/Org": "Datadog",
+            "Tool/Product/Project": "Runtime Security",
+            "Initial review": "2020-11-23",
+            "Meets our criteria?": "TRUE",
+            "GA?": "TRUE",
+            "Scheduled for": "2020-11-26",
+            "URL": "https://www.datadoghq.com/blog/datadog-runtime-security/",
+            "What is it?": "A runtime security thing.",
+            "Announced": "2020-11-23",
+            "Category": "DevOps",
+            "Type": "SaaS",
+            "Access": "Open",
+            "Twitter": "@datadoghq",
+            "Why not?": "",
+            "Beta ended": "",
+            "GA URL": ""
+          },
+          {
+            "Company/Org": "Datadog",
+            "Tool/Product/Project": "Runtime Security",
+            "Initial review": "2020-11-23",
+            "Meets our criteria?": "TRUE",
+            "GA?": "TRUE",
+            "Scheduled for": "2020-11-26",
+            "URL": "https://www.datadoghq.com/blog/datadog-runtime-security/",
+            "What is it?": "A runtime security thing.",
+            "Announced": "2020-11-23",
+            "Category": "DevOps",
+            "Type": "SaaS",
+            "Access": "Open",
+            "Twitter": "@datadoghq",
+            "Why not?": "",
+            "Beta ended": "",
+            "GA URL": ""
+          }
+        ],
+        "header": [
+          "Company/Org",
+          "Tool/Product/Project",
+          "Initial review",
+          "Meets our criteria?",
+          "GA?",
+          "Scheduled for",
+          "URL",
+          "What is it?",
+          "Announced",
+          "Category",
+          "Type",
+          "Access",
+          "Twitter",
+          "Why not?",
+          "Beta ended",
+          "GA URL"
+        ],
+        "range": "'All Programs'!A1:M969"
+      }
+    }
+  ]
+}
