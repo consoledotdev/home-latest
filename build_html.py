@@ -43,6 +43,9 @@ with open(args.beta_json, 'r') as f:
     betas = json.load(f)
 
     for program in betas['results'][0]['result']['formatted']:
+        if program['Scheduled for'] == "":
+            continue
+
         scheduled_for = parse(program['Scheduled for'])
 
         # Only pull out things scheduled for the last newsletter
