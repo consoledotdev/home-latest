@@ -101,4 +101,5 @@ is enabled for the Service Account.
 * `CF_API_TOKEN` - [Cloudflare API
   token](https://dash.cloudflare.com/profile/api-tokens) to deploy.
 * `GSHEET_CLIENT_EMAIL` - email of the Google Service Account.
-* `GSHEET_PRIVATE_KEY` - private key of the Google Service Account.
+* `GSHEET_PRIVATE_KEY` - private key of the Google Service Account. Download
+  JSON then extract private key component.
