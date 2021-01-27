@@ -39,11 +39,6 @@ jobs:
                   RESULTS: ${{ steps.get_data_tools.outputs.results }}
               run: echo "$RESULTS" > tools.json
 
-            - uses: actions/upload-artifact@v2
-              with:
-                  name: tools-json
-                  path: tools.json
-
             - id: 'get_data_beta'
               name: Get beta list from Google Sheets
               uses: jroehl/gsheet.action@v1.1.0
@@ -67,11 +62,6 @@ jobs:
               env:
                   RESULTS: ${{ steps.get_data_beta.outputs.results }}
               run: echo "$RESULTS" > betas.json
-
-            - uses: actions/upload-artifact@v2
-              with:
-                  name: betas-json
-                  path: betas.json
 
             - name: Setup Python
               uses: actions/setup-python@v2
