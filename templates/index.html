@@ -106,8 +106,11 @@
         <h2>New beta releases &amp; early access programs</h2>
 
         {% for beta in betas %}
-        <h3><a href="{{ beta['URL'] }}">{{ beta['Tool/Product/Project'] }}</a>,
-            from {{ beta['Company/Org'] }}</h3>
+        <h3><a href="{{ beta['URL'] }}">{{ beta['Tool/Product/Project'] }}</a>
+        {% if beta['Company/Org'] not in beta['Tool/Product/Project'] %}
+            from {{ beta['Company/Org'] }}
+        {% endif %}
+        </h3>
         <p><em>{{ beta['What is it?'] }}</em></p>
         <p>{{ beta['Category'] }}. {{ beta['Type'] }}. {{ beta['Access'] }}.</p>
 
