@@ -23,6 +23,9 @@ parser.add_argument('--template', help='Path to the file containing the table'
 parser.add_argument('--output', help='Path to the location of the output file'
                     ' (will be created if it does not exist, overwritten if it'
                     ' does)', required=True)
+parser.add_argument('--ignore-date', help='Output every item in the JSON'
+                    ' regardless of the date. Used for testing',
+                    type=bool, default=False, required=False)
 args = parser.parse_args()
 
 print('Starting build')
@@ -49,7 +52,8 @@ with open(args.tools_json, 'r') as f:
         scheduled_for = parse(tool['Scheduled for'])
 
         # Only pull out things scheduled for the last newsletter
-        if scheduled_for.isocalendar() == last_thursday.isocalendar():
+        if args.ignore_date \
+                or scheduled_for.isocalendar() == last_thursday.isocalendar():
             interesting.append(tool)
 
     print('Loaded tools JSON')
@@ -63,13 +67,14 @@ with open(args.beta_json, 'r') as f:
     betas = json.load(f)
 
     for program in betas['results'][0]['result']['formatted']:
-        if program['Scheduled for'] == "":
+        if program['Scheduled for'] == '':
             continue
 
         scheduled_for = parse(program['Scheduled for'])
 
         # Only pull out things scheduled for the last newsletter
-        if scheduled_for.isocalendar() == last_thursday.isocalendar():
+        if args.ignore_date \
+                or scheduled_for.isocalendar() == last_thursday.isocalendar():
             programs.append(program)
 
     print('Loaded beta JSON')
