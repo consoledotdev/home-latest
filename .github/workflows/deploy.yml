@@ -71,7 +71,7 @@ jobs:
               with:
                   python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
 
-            - namegithub.event_name: Install pip dependencies
+            - name: Install pip dependencies
               shell: bash
               run: |
                   pip install --upgrade pip
